@@ -1013,3 +1013,42 @@ Hisobot:
     - 2002 yilda: 70 ta 7%i
     ....
 """
+print("Hisobot:")
+print(" - Brentlar:")
+printed = set()
+
+for i in phones:
+    count = 0
+    
+    if i['brand'] not in printed:
+        for j in phones:
+            if i["brand"] == j['brand']:
+                count += 1
+    
+        percnt = (float(count) / 1000.0) * 100
+        print(f"- {i['brand']} phones: {count} ta, {percnt:.2f}% ")        
+    
+    printed.add(i['brand'])
+    
+print()
+print()
+print()
+print()
+
+print(" - Yillar bo'yicha")
+phones_sorted = sorted(phones, key=lambda x: x["date"]) # we used key to take direct element , for example we need date in this situation
+
+printed_dates = set()
+
+for i in phones_sorted:
+    count = 0
+    if i['date'] not in printed_dates:
+        for j in phones:
+            if i['date'] == j['date']:
+                count += 1
+        
+        prcntg = (float(count) / 1000) * 100
+        printed_dates.add(i['date'])
+        # print(f"- {i['date']} year: {count} phones, ")
+        print(f"- {i['date']} year: {count} phones, {prcntg:.2f}%")
+      

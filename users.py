@@ -1007,3 +1007,19 @@ Hisobot:
 - Erkaklar: 500 ta, 50%i
 - Ayollar: 500 ta, 50%i
 """
+
+countFemale = 0
+countMale = 0
+
+for i in users:
+    if i.get('gender') == "Female":
+        countFemale += 1
+    elif i.get('gender') == "Male":
+        countMale += 1
+
+perF = (float(countFemale) / 1000.0) * 100
+perM = (float(countMale) / 1000.0) * 100
+
+print("Hisobot:")
+print(f"- Male: {countMale}, {perM:.2f}%")
+print(f"- Female: {countFemale}, {perF:.2f}%")
